@@ -1,0 +1,25 @@
+version: '3'
+services:
+  logic:
+    image: logic
+    container_name: logic
+    build:
+      context: ./sa-logic
+    ports:
+      - 5050:5000
+  webapp:
+    image: webapp
+    container_name: mywebapp
+    build:
+      context: ./sa-webapp
+    ports:
+      - 8080:8080
+    environment:
+      - SA_LOGIC_API_URL=http://34.221.42.245:5050
+  frontapp:
+    image: frontapp
+    container_name: myfrontapp
+    build: 
+      context: ./sa-frontend
+    ports:
+      - 80:80      
