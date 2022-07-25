@@ -1,0 +1,45 @@
+kind: Deployment 
+apiVersion: apps/v1
+metadata:
+  name: webservice
+  namespace: kube-test
+  annotations:
+    description: This service is related to the webapp for sentiments
+    kubernetes.io/change-cause: This is the very first release
+  labels:
+    app: web-app
+    mode: dev
+    owner: Rohit-Squareops  
+spec:
+  replicas: 2
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      name: webselector
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 #No of pod to be created at a time
+      maxUnavailable: 1 # max no of pod allowed to be unavailable
+  template:
+    metadata:
+      name: webpods
+      labels:
+        name: webselector
+    spec:
+      containers:
+        - image: rohitsquareops/webapp
+          name: webapp
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SA_LOGIC_API_URL
+              value: "http://34.221.42.245:5050"
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: '100m'
+              memory: "200Mi"
+            limits:
+              cpu: '150m'
+              memory: '300Mi'

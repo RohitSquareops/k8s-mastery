@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  service-web
+spec:
+  selector:
+    name: webselector
+  type:  ClusterIP
+  ports:
+  - name:  "out-side-port-8080-to-inside-port-8080"
+    port:  8080
+    targetPort:  8080
+    protocol: TCP

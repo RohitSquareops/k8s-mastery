@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logicservice
+  namespace: kube-test
+  annotations:
+    description: This service is related to the logic for sentiments
+    kubernetes.io/change-cause: This is the very first release
+  labels:
+    app: logic-app
+    mode: dev
+    owner: Rohit-Squareops
+spec:
+  replicas: 2
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      name: logicselector
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: logicpods
+      labels:
+        name: logicselector
+    spec:
+      containers:
+        - image: rohitsquareops/logic
+          name: logic
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5050
+          resources:
+            requests:
+              cpu: '100m'
+              memory: "200Mi"
+            limits:
+              cpu: '150m'
+              memory: '300Mi'

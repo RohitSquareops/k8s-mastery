@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  service-front
+spec:
+  selector:
+    name: frontselector
+  type:  NodePort
+  ports:
+  - name:  "80-80"
+    port:  80
+    targetPort:  80
+    protocol: TCP
