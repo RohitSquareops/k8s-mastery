@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: frontservice
-  namespace: kube-test
+  #namespace: kube-test
   annotations:
     description: This service is related to the front app for sentiments
     kubernetes.io/change-cause: This is the very first release
@@ -14,10 +14,7 @@ spec:
   selector:
     matchLabels:
       name:  frontselector
-  replicas: 2
-  minReadySeconds: 20
-  strategy:
-    type: Recreate
+  replicas: 1
   template:
     metadata:
       name: frontpod
@@ -26,8 +23,7 @@ spec:
     spec: 
       containers:
         - name: front
-          image: rohitsquareops/frontend
-          imagePullPolicy: IfNotPresent
+          image: rohitsquareops/frontapp
           ports: 
             - containerPort: 80
           resources:

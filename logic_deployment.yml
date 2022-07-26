@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: logicservice
-  namespace: kube-test
+  #namespace: kube-test
   annotations:
     description: This service is related to the logic for sentiments
     kubernetes.io/change-cause: This is the very first release
@@ -27,7 +27,7 @@ spec:
       containers:
         - image: rohitsquareops/logic
           name: logic
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 5050
           resources:

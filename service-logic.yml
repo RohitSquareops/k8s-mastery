@@ -2,12 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name:  servicelogic
-spec:
+spec:   
+  ports:
+    - port:  5050
+      protocol: TCP
+      targetPort:  5000
   selector:
     name: logicselector
-  type:  ClusterIP
-  ports:
-  - name:  "out-side-port-5050-to-inside-port-5000"
-    port:  5050
-    targetPort:  5000
-    protocol: TCP
+    
