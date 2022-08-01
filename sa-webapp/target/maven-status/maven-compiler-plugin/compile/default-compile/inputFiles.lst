@@ -1,0 +1,4 @@
+/home/ubuntu/k8s-mastery/sa-webapp/src/main/java/com/sa/web/dto/SentenceDto.java
+/home/ubuntu/k8s-mastery/sa-webapp/src/main/java/com/sa/web/dto/SentimentDto.java
+/home/ubuntu/k8s-mastery/sa-webapp/src/main/java/com/sa/web/SentimentAnalysisWebApp.java
+/home/ubuntu/k8s-mastery/sa-webapp/src/main/java/com/sa/web/SentimentController.java
