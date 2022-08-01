@@ -28,7 +28,7 @@ stages{
         cd k8s-mastery/sa-frontend
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t frontendgit .
-        docker image tag frontendgit $ImageRepo/frontendgit:latest
+        docker image tag frontendgit $ImageRepo/frontendgit
         docker push $ImageRepo/frontendgit
        '''
         }
