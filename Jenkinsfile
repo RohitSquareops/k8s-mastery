@@ -27,8 +27,6 @@ stages{
          sh ''' 
         cd k8s-mastery/sa-frontend
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
-        npm install
-        yarn build
         docker build -t frontendgit .
         docker image tag frontendgit:latest $ImageRepo/frontendgit:latest
         docker push $ImageRepo/frontendgit:latest
