@@ -1,6 +1,6 @@
 FROM maven:3.5-jdk-8-alpine AS builder
 WORKDIR /sa-webapp
-RUN mvn install
+RUN mvn clean package
 
 ENV SA_LOGIC_API_URL http://54.213.236.147:5000
 
