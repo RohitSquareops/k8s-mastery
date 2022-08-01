@@ -1,4 +1,4 @@
-FROM 3.8.6-jdk-8 AS builder
+FROM maven:3.8.6-jdk-8 AS builder
 WORKDIR /sa-webapp
 COPY pom.xml .
 RUN mvn install
