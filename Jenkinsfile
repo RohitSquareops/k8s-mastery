@@ -22,7 +22,6 @@ stages{
   stage("Build Image and push to dockerhub"){
     steps{
       container('docker'){
-        withCredentials([gitUsernamePassword(credentialsId: 'a0832ab5-9088-4cdc-82e1-c986bca506cd')]){
         script{
         echo "Test code from github"
          sh ''' 
@@ -32,7 +31,6 @@ stages{
         docker image tag frontendgit:latest $ImageRepo/frontendgit:latest
         docker push $ImageRepo/frontendgit:latest
        '''
-        }
         }
       }
     }
