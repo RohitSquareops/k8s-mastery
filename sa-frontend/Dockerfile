@@ -1,6 +1,7 @@
 FROM node:alpine as builder
 COPY . /sa-frontend
 WORKDIR /sa-frontend
+RUN apt-get install -y npm 
 RUN npm install
 RUN npm run build
 
