@@ -1,7 +1,11 @@
 FROM maven:3.8.6-jdk-8 AS builder
 WORKDIR /sa-webapp
+<<<<<<< HEAD
 COPY pom.xml .
 RUN mvn  install
+=======
+RUN mvn install 
+>>>>>>> 7e5b937990ab1dbfb185fdd1ed3896f9b9ef6dff
 
 ENV SA_LOGIC_API_URL http://54.213.236.147:5000
 
