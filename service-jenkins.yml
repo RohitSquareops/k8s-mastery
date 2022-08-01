@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  service-jenkins
+spec:
+  selector:
+    name: jenkinsselector
+  type:  NodePort
+  ports:
+    - port:  9090
+      targetPort:  9090

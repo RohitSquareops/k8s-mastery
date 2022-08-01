@@ -11,7 +11,7 @@ metadata:
     mode: dev
     owner: Rohit-Squareops
 spec:
-  replicas: 2
+  replicas: 1
   minReadySeconds: 20
   selector:
     matchLabels:

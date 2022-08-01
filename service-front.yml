@@ -5,9 +5,11 @@ metadata:
 spec:
   selector:
     name: frontselector
-  type:  NodePort
+  #type:  NodePort
+  #type: LoadBalancer
   ports:
     - name:  "80-80"
       port:  80
       targetPort:  80
-      nodePort: 32099
+      protocol: TCP
+      #nodePort: 32099

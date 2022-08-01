@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jenkinsdeployment
+  annotations:
+    description: This service is related to the jenkins  app for sentiments
+    kubernetes.io/change-cause: This is the very first release
+  labels:
+    app: jenkins-dashboard
+    mode: dev
+    owner: Rohit-Squareops
+spec:
+  selector:
+    matchLabels:
+      name:  jenkinsselector
+  replicas: 1
+  template:
+    metadata:
+      name: jenkinspod
+      labels:
+        name: jenkinsselector
+    spec: 
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins
+          ports: 
+            - containerPort: 9090
+
