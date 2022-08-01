@@ -21,7 +21,7 @@ stages{
   stage("Build Image and push to dockerhub"){
     steps{
       container('docker'){
-        withCredentials([gitUsernamePassword(credentials: 'a0832ab5-9088-4cdc-82e1-c986bca506cd')]){
+        withCredentials([gitUsernamePassword(credentialsId: 'a0832ab5-9088-4cdc-82e1-c986bca506cd')]){
         script{
         echo "Test code from github"
          sh ''' 
