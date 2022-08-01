@@ -25,7 +25,7 @@ stages{
         script{
         echo "Test code from github"
          sh ''' 
-        cd k8s-mastery/sa-backend
+        cd k8s-mastery/sa-webapp
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t webend .
         docker image tag webend $Image_Repo/webend
