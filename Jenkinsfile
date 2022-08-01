@@ -3,6 +3,7 @@ agent any
   environment{
     Image_Repo="rohitsquareops"
     Branch="master"
+    Docker_Cred=credentials('docker-cred')
   }
 stages{
   stage('Go to repo'){
@@ -26,6 +27,7 @@ stages{
         echo "Test code from github"
          sh ''' 
         cd k8s-mastery/sa-frontend
+        echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t frontendgit .
         docker image tag frontendgit:latest $ImageRepo/frontendgit:latest
         docker push $ImageRepo/frontendgit:latest
