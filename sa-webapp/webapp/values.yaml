@@ -11,7 +11,7 @@ image:
   tag: "latest"
   env:
     - name: SA_LOGIC_API_URL
-      value: "http://logic:5000"
+      value: "http://logic:5050"
 
 imagePullSecrets: []
 nameOverride: ""
