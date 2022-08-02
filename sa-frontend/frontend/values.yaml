@@ -48,7 +48,7 @@ ingress:
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: "*"
     nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-     #  kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
   hosts:
     - host: kuberohit.rtd.squareops.co.in
       paths:
