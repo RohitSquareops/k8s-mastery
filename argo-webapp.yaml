@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/RohitSquareops/k8s-mastery.git'
+    path: sa-webapp/webapp
+    targetRevision: master
+    helm:
+      valueFiles:
+        - sa-webapp/webapp/values.yaml
+  syncPolicy: {}

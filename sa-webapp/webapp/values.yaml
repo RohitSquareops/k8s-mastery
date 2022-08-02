@@ -3,15 +3,16 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+env:          
+ - name: "SA_LOGIC_API_URL"
+   value: "http://logic:5050"
 
 image:
   repository: rohitsquareops/webapp
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
-  env:
-    - name: SA_LOGIC_API_URL
-      value: "http://logic:5050"
+
 
 imagePullSecrets: []
 nameOverride: ""
