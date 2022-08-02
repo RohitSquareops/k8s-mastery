@@ -54,16 +54,16 @@ ingress:
      nginx.ingress.kubernetes.io/enable-cors: "true"
      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
      nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-     kubernetes.io/tls-acme: "true"
+     #kubernetes.io/tls-acme: "true"
   hosts:
     - host: kuberohit-webapp.rtd.squareops.co.in
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: 
-    - secretName: webapp-tls
-      hosts:
-        - kuberohit-webapp.rtd.squareops.co.in
+  tls: [] 
+#     - secretName: webapp-tls
+#       hosts:
+#         - kuberohit-webapp.rtd.squareops.co.in
 
 resources: 
   # We usually recommend not to specify default resources and to leave this as a conscious
