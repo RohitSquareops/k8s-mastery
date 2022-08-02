@@ -9,13 +9,15 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
-  env:
-    - name: SA_LOGIC_API_URL
-      value: "http://logic:5050"
+
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+env:
+  - name: "SA_LOGIC_API_URL"
+    value: "http://logic:5050"
 
 serviceAccount:
   # Specifies whether a service account should be created
