@@ -3,9 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-env:          
- - name: "SA_LOGIC_API_URL"
-   value: "http://logic:5050"
+
 
 image:
   repository: rohitsquareops/webapp
@@ -17,6 +15,10 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+env:
+  - name: "SA_LOGIC_API_URL"
+    value: "http://logic:5050"
+
 
 serviceAccount:
   # Specifies whether a service account should be created
