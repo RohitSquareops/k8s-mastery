@@ -17,7 +17,7 @@ nameOverride: ""
 fullnameOverride: ""
 env:
   - name: "SA_LOGIC_API_URL"
-    value: "http://logic:5050"
+    value: "http://logic"
 
 
 serviceAccount:
