@@ -15,9 +15,9 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-env:
-  - name: "SA_LOGIC_API_URL"
-    value: "http://logic:5000"
+# env:
+#   - name: "SA_LOGIC_API_URL"
+#     value: "http://logic:5000"
 
 
 serviceAccount:
