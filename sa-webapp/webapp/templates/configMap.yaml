@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: config-demo
 data:
-  SA_LOGIC_API_URL: "http://logic:5000"
+  SA_LOGIC_API_URL: "http://logic"
   
