@@ -33,12 +33,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          - name: "config-demo"
-            valueFrom:
-              configMapKeyRef:
-                key:  SA_LOGIC_API_URL
-                name: config-demo         
+          envFrom:
+            - configMapRef: 
+                name: config-demo  
           ports:
             - name: http
               containerPort: 8080
