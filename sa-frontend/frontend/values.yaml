@@ -52,17 +52,17 @@ ingress:
 #     nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
 #   nginx.ingress.kubernetes.io/cors-allow-origin: "*" 
 #     nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    kubernetes.io/tls-acme: "true"
+#     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
     - host: kuberohit.rtd.squareops.co.in
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls:
-   - secretName: frontend-tls
-     hosts:
-       - kuberohit.rtd.squareops.co.in
+  tls: []
+#    - secretName: frontend-tls
+#      hosts:
+#        - kuberohit.rtd.squareops.co.in
 
 resources: 
   # We usually recommend not to specify default resources and to leave this as a conscious
