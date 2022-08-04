@@ -28,12 +28,32 @@ stages{
         cd k8s-mastery/sa-logic
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t logicend .
-        docker image tag logicend $Image_Repo/logicend
-        docker push $Image_Repo/logicend
+        docker image tag logicend $Image_Repo/logic
+        docker push $Image_Repo/logic
        '''
         }
       }
     }
   }
+  
+    stage("update image tag and save it to "){
+    steps{
+      container('docker'){
+        script{
+        echo "Test code from github"
+         sh ''' 
+        cd k8s-mastery/sa-logic/logic
+		yq e -i '(.image.tag = "'latest'")' values.yaml
+		git config --global user.email "rohit.kumar@squareops.com"
+		git config --global user.name "RohitSquareops"            
+		git add .
+		git commit -m 'updating image tag in github logic app at helm values.yml'
+		git push origin $Branch  
+       '''
+        }
+      }
+    }
+  }
+  
  }
 }
