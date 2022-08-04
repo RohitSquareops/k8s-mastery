@@ -6,7 +6,7 @@ image:
   repository: rohitsquareops/logic
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ":master-14"
+  tag: "master-16"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
