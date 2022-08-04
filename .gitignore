@@ -1,6 +1,5 @@
 # SA Frontend ignored files
-node_modules/
-**/sa-frontend/build/
+
 
 # SA Logic ignored files
 venv/
