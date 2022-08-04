@@ -28,8 +28,8 @@ stages{
           cd k8s-mastery/sa-frontend
           echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
           docker build -t frontapp .
-          docker image tag frontapp $Image_Repo/frontapp
-          docker push $Image_Repo/frontapp
+          docker image tag frontapp $Image_Repo/frontapp:master-${BUILD_NUMBER}
+          docker push $Image_Repo/frontapp:master-${BUILD_NUMBER}
           '''
         }
       }
@@ -44,7 +44,7 @@ stages{
            echo "Test code from github"
            sh ''' 
           cd k8s-mastery/sa-webapp/webapp
-          yq e -i '(.image.tag = "'latest'")' values.yaml
+          yq e -i '(.image.tag = "'master-${BUILD_NUMBER}'")' values.yaml
 	        git config --global user.email "rohit.kumar@squareops.com"
 	        git config --global user.name "RohitSquareops"           
 	        git add .
