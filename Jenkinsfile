@@ -10,9 +10,9 @@ stages{
     steps{
       container('docker'){ 
         script{
-             echo "take code from github"
-             sh 
-	          '''
+          echo "take code from github"
+           sh
+	     '''
               git clone -b $Branch https://github.com/RohitSquareops/k8s-mastery.git
              '''
              echo "Branch copied"
