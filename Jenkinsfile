@@ -24,7 +24,8 @@ stages{
       container('docker'){
         script{
         echo "Test code from github"
-         sh ''' 
+         sh 
+          ''' 
         cd k8s-mastery/sa-frontend
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t frontend .
