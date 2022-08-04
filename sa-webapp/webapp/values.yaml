@@ -6,7 +6,7 @@ image:
   repository: rohitsquareops/webapp
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "master-23"
+  tag: "master-36"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
