@@ -28,12 +28,31 @@ stages{
         cd k8s-mastery/sa-frontend
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t frontend .
-        docker image tag frontend $Image_Repo/frontend
-        docker push $Image_Repo/frontend
+        docker image tag frontend $Image_Repo/frontapp
+        docker push $Image_Repo/frontapp
        '''
         }
       }
     }
   }
- }
-}
+  
+      stage("update image tag and save it to "){
+    steps{
+      container('docker'){
+	withCredentials([gitUsernamePassword(credentialsId: 'git-cred')]) {
+        script{
+        echo "Test code from github"
+         sh ''' 
+        cd k8s-mastery/sa-frontend/frontend
+        yq e -i '(.image.tag = "'latest'")' values.yaml
+	git config --global user.email "rohit.kumar@squareops.com"
+	git config --global user.name "RohitSquareops"           
+	git add .
+	git commit -m 'updating image tag in github logic app at helm values.yml'
+	git push origin $Branch  
+       '''
+        }
+	}
+      }
+    }
+  }
