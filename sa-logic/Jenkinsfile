@@ -44,7 +44,7 @@ stages{
         echo "Test code from github"
          sh ''' 
         cd k8s-mastery/sa-logic/logic
-        yq e -i '(.image.tag = "':master-${BUILD_NUMBER}'")' values.yaml
+        yq e -i '(.image.tag = "'master-${BUILD_NUMBER}'")' values.yaml
 	git config --global user.email "rohit.kumar@squareops.com"
 	git config --global user.name "RohitSquareops"           
 	git add .
