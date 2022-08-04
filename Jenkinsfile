@@ -43,14 +43,14 @@ stages{
          script{
            echo "Test code from github"
            sh ''' 
-          cd k8s-mastery/sa-webapp/webapp
-          yq e -i '(.image.tag = "'master-${BUILD_NUMBER}'")' values.yaml
-	        git config --global user.email "rohit.kumar@squareops.com"
-	        git config --global user.name "RohitSquareops"           
-	        git add .
-	       git commit -m 'updating image tag in github logic app at helm values.yml'
-	       git push origin $Branch  
-         '''
+              cd k8s-mastery/sa-webapp/webapp
+              yq e -i '(.image.tag = "'master-${BUILD_NUMBER}'")' values.yaml
+	      git config --global user.email "rohit.kumar@squareops.com"
+	      git config --global user.name "RohitSquareops"           
+	      git add .
+	      git commit -m 'updating image tag in github logic app at helm values.yml'
+	      git push origin $Branch  
+             '''
         }
 	   }
       }
