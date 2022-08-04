@@ -28,12 +28,34 @@ stages{
         cd k8s-mastery/sa-webapp
         echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
         docker build -t webend .
-        docker image tag webend $Image_Repo/webend
-        docker push $Image_Repo/webend
+        docker image tag webend $Image_Repo/webapp
+        docker push $Image_Repo/webapp
        '''
         }
       }
     }
   }
+  
+    stage("update image tag and save it to "){
+    steps{
+      container('docker'){
+	      withCredentials([gitUsernamePassword(credentialsId: 'git-cred')]) {
+       script{
+        echo "Test code from github"
+         sh ''' 
+        cd k8s-mastery/sa-webapp/webapp
+       yq e -i '(.image.tag = "'latest'")' values.yaml
+	    git config --global user.email "rohit.kumar@squareops.com"
+	    git config --global user.name "RohitSquareops"           
+	    git add .
+	    git commit -m 'updating image tag in github logic app at helm values.yml'
+	    git push origin $Branch  
+       '''
+        }
+	}
+      }
+    }
+  }
+  
  }
 }
