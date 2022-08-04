@@ -19,23 +19,22 @@ stages{
       }
     }
   } 
-//   stage('Build Image and push to dockerhub'){
-//     steps{
-//       container('docker'){
-//         script{
-//           echo "Test code from github"
-//           sh 
-//           ''' 
-//           cd k8s-mastery/sa-frontend
-//           echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
-//           docker build -t frontend .
-//           docker image tag frontend $Image_Repo/frontapp
-//           docker push $Image_Repo/frontapp
-//           '''
-//         }
-//       }
-//     }
-//   }
+  stage('Build Image and push to dockerhub'){
+    steps{
+      container('docker'){
+        script{
+          echo "Test code from github"
+          sh  ''' 
+          cd k8s-mastery/sa-frontend
+          echo $Docker_Cred_PSW | docker login -u $Docker_Cred_USR --password-stdin
+          docker build -t frontapp .
+          docker image tag frontapp $Image_Repo/frontapp
+          docker push $Image_Repo/frontapp
+          '''
+        }
+      }
+    }
+  }
   
   }
   }
